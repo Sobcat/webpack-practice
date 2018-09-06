@@ -1,0 +1,14 @@
+h2{
+  color: blue;
+}
+a {
+  color: brown;
+  font-size: 18px;
+}
+div{
+  width: 200px;
+  height: 200px;
+  background: url('./images/1.jpg');
+  transition: all .3s ease;
+  animation: 0ms;
+}
