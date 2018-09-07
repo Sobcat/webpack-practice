@@ -82,7 +82,13 @@ module.exports = {
     // minimizer: [new OptimizationCssAssetsWebpackPlugin()]
   },
   //服务器配置
-  devServer: {},
+  devServer: {
+    contentBase: './dist',
+    host: 'localhost',
+    port: 8866, //端口
+    open: true, //自动打开浏览器
+    hot: true //热更新
+  },
   //模式配置
   // mode: 'development'
   mode: 'production'
