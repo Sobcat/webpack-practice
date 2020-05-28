@@ -1,6 +1,8 @@
 //webpack.config.js
 
 const path = require('path');
+const webpack = require('webpack');
+const CopyWebpackPlugin = ('copy-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); //清除生成文件插件
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //html插件
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //拆分 css 插件 以 link 方式引入 css, 但只能合并单个 css
@@ -121,6 +123,15 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[hash:8].css',
             chunkFilename: '[id].css'
-        })
+        }),
+        //抽取第三方公共文件
+        // new webpack.DllReferencePlugin({
+        //     context: __dirname,
+        //     manifest: require('./vendor-manifest.json')
+        // }),
+        // // 拷贝生成的文件到dist目录 这样每次不必手动去cv
+        // new CopyWebpackPlugin([ 
+        //     {from: 'static', to:'static'}
+        //   ]),
     ]
 };
